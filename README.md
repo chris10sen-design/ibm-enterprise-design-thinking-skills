@@ -8,11 +8,11 @@ An unofficial collection of [Agent Skills](https://agentskills.io) that bring [I
 
 ## Skills in this collection
 
-| Skill | What it does |
-|---|---|
-| [`edt-empathy-map`](skills/edt-empathy-map/SKILL.md) | Facilitate or synthesize an Empathy Map — maps what a user Says, Does, Thinks, and Feels |
+| Skill                                                                            | What it does                                                                                     |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| [`edt-empathy-map`](skills/edt-empathy-map/SKILL.md)                             | Facilitate or synthesize an Empathy Map — maps what a user Says, Does, Thinks, and Feels         |
 | [`edt-assumptions-and-questions`](skills/edt-assumptions-and-questions/SKILL.md) | Surface team assumptions and open questions, place them on a risk grid, and build an action plan |
-| [`edt-needs-statements`](skills/edt-needs-statements/SKILL.md) | Translate user research and observations into outcome-focused Needs Statements |
+| [`edt-needs-statements`](skills/edt-needs-statements/SKILL.md)                   | Translate user research and observations into outcome-focused Needs Statements                   |
 
 ---
 
@@ -42,7 +42,7 @@ zip -r edt-empathy-map.zip skills/edt-empathy-map/
 # Then upload edt-empathy-map.zip via Settings → Skills → Add → Upload skill
 ```
 
-Requires a Pro, Max, Team, or Enterprise plan with code execution enabled. See the [claude.ai skills help article](https://support.claude.com/en/articles/12512180-using-skills-in-claude) for details.
+See the [claude.ai skills help article](https://support.claude.com/en/articles/12512180-using-skills-in-claude) for details.
 
 ### Claude Code
 
