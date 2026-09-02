@@ -32,18 +32,31 @@ This means you don't manually paste anything — you put the skills somewhere th
 
 ## How to use these skills
 
+### claude.ai
+
+Claude has native skill support in its settings. Go to **Settings → Skills → Add → Upload skill**, zip up the skill folder you want, and upload it. Skills uploaded this way are available to you across all conversations automatically.
+
+```
+# Zip and upload each skill folder, e.g.:
+zip -r edt-empathy-map.zip skills/edt-empathy-map/
+# Then upload edt-empathy-map.zip via Settings → Skills → Add → Upload skill
+```
+
+Requires a Pro, Max, Team, or Enterprise plan with code execution enabled. See the [claude.ai skills help article](https://support.claude.com/en/articles/12512180-using-skills-in-claude) for details.
+
 ### Claude Code
 
-Claude Code discovers skills from a `skills/` directory at the root of your project, or from `~/.claude/skills/` for skills you want available in every project.
+Claude Code discovers skills from `.claude/skills/` at the project root, or from `~/.claude/skills/` for skills available in every project.
 
 ```
 # Project-level (just this project)
 <your-project>/
-└── skills/
-    ├── edt-empathy-map/
-    │   └── SKILL.md
-    └── edt-assumptions-and-questions/
-        └── SKILL.md
+└── .claude/
+    └── skills/
+        ├── edt-empathy-map/
+        │   └── SKILL.md
+        └── edt-assumptions-and-questions/
+            └── SKILL.md
 
 # Global (all projects)
 ~/.claude/skills/
@@ -52,7 +65,7 @@ Claude Code discovers skills from a `skills/` directory at the root of your proj
 └── ...
 ```
 
-Clone or copy the `skills/` folder from this repo into either location. Claude Code will pick up the skills automatically — no configuration needed. See the [Claude Code skills docs](https://code.claude.com/docs/en/skills) for details.
+Copy the skill folders into either location. Claude Code picks them up automatically — no configuration needed. See the [Claude Code skills docs](https://code.claude.com/docs/en/skills) for details.
 
 ### Cursor
 
@@ -72,24 +85,30 @@ Copy the `skills/` folder from this repo into your project root (or into `~/.cur
 
 ### ChatGPT / Codex (OpenAI)
 
-Codex discovers skills from a `skills/` directory at the root of your project, or from `~/.codex/skills/` for global skills.
+ChatGPT and Codex both support native skill discovery. The location depends on how you're using them:
+
+**ChatGPT desktop app** — open the **Skills** panel in the sidebar to browse and manage skills. Codex reads local skills from `.agents/skills/` inside your repo or from `~/.agents/skills/` for personal skills available across all repos.
+
+**Codex CLI** — same locations apply: `.agents/skills/` (repo-scoped) or `~/.agents/skills/` (user-scoped).
 
 ```
-# Project-level
+# Repo-scoped (checked in with your project)
 <your-project>/
-└── skills/
-    ├── edt-empathy-map/
-    │   └── SKILL.md
-    └── ...
+└── .agents/
+    └── skills/
+        ├── edt-empathy-map/
+        │   └── SKILL.md
+        └── edt-assumptions-and-questions/
+            └── SKILL.md
 
-# Global
-~/.codex/skills/
+# User-scoped (available in all repos)
+~/.agents/skills/
 ├── edt-empathy-map/
 │   └── SKILL.md
 └── ...
 ```
 
-Copy the skills you want into either location and Codex will pick them up automatically. See the [Codex skills docs](https://developers.openai.com/codex/skills/) for details.
+Copy the skill folders into either location. Codex detects skill changes automatically. See the [Codex skills docs](https://developers.openai.com/codex/build-skills) for details.
 
 ### IBM Bob
 
@@ -117,15 +136,7 @@ Copy the `skills/` folder from this repo into `.bob/skills/` (or `~/.bob/skills/
 
 ### Other agents
 
-The Agent Skills format is an open standard supported by a growing list of tools — see the [Client Showcase](https://agentskills.io/clients) for the full list (includes GitHub Copilot, VS Code, Gemini CLI, Goose, and many more). Each client typically looks for a `skills/` directory at the project root or a global `~.<client>/skills/` directory. Check the docs for your specific agent.
-
-### No coding agent? (claude.ai or chatgpt.com)
-
-If you're using a web chat interface without automatic skill discovery, you can still use these skills manually:
-
-1. Open the `SKILL.md` file for the activity you want to run
-2. Copy its full contents
-3. Paste it into the conversation before your first prompt (or into a Project's system instructions for Claude, or a custom GPT's instructions field for ChatGPT)
+The Agent Skills format is an open standard supported by a growing list of tools — see the [Client Showcase](https://agentskills.io/clients) for the full list (includes GitHub Copilot, VS Code, Gemini CLI, Goose, and many more). Check the docs for your specific agent for its exact discovery path.
 
 ---
 
